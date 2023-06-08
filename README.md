@@ -1,36 +1,40 @@
-# Guia
-Esse é um guia simples para rodar o a ferramenta [CYBERSORTx](https://cibersortx.stanford.edu/) via web.
+# CYBERSORTx Guide
+This is a simple guide to run [CYBERSORTx](https://cibersortx.stanford.edu/) on the web.
 
-Referência: [NEWMAN, et al. Determining cell type abundance and expression from bulk tissues with digital cytometry. 2019](https://pubmed.ncbi.nlm.nih.gov/31061481/).
+Reference: [NEWMAN, et al. Determining cell type abundance and expression from bulk tissues with digital cytometry. 2019](https://pubmed.ncbi.nlm.nih.gov/31061481/).
 
-## Sobre a ferramenta
-O CIBERSORTx é uma ferramenta analítica capaz de imputar perfis de expressão gênica e fornecer uma estimativa das abundâncias dos tipos celulares presentes em uma determinada amostra, utilizando dados de expressão gênica.
+## About
+CIBERSORTx is an analytical tool capable of imputing gene expression profiles and providing an estimation of cellular abundances for different cell types present in a given sample, using gene expression data.
 
-## Como posso acessar?
-Para fazer análises no [CYBERSORTx](https://cibersortx.stanford.edu/), é necessário criar um login de acesso no site. De forma geral, a liberação do login pode demorar alguns dias.
+## How to access?
+To run analysis in [CYBERSORTx](https://cibersortx.stanford.edu/) it is necessary to create a login account on the website. Generally, the approval of the login may take a few days.
 
-## Como começo a fazer as análises?
-Para iniciar uma análise, basta acessar a página com seu login e escolher a opção **Run CIBERSORTx** na aba **Menu**.
+## How do I start to make an analysis?
+To start an analysis, simply access the page with your login and choose the option **Run CIBERSORTx** in **Menu**.
 
-Com isso, três módulos são apresentados a você.
-### Módulo 1- Create Signature Matrix
-O Módulo 1 corresponde a criação de matrizes de assinatura as quais você pode usar para inferir as frações celulares ou expressão celular nos outros dois módulos.
+Three modules are presented to you:
+### Module 1- Create Signature Matrix
+Module 1 corresponds to the creation of signature matrices which you can use to infer cellular fractions or cellular expression in the other two modules.
 
-Para criar a matriz, é preciso informar qual o tipo de dado de expressão (RNAseq, Single-cell RNAseq, Microarray) para qual a matriz será gerada, além de fazer o upload de dois arquivos diferentes:
-  1. Arquivo referência: Tabela dos perfis de expressão gênica das populações celulares referência que serão comparadas entre si. É usada para definir as possíveis classes de fenótipo para gerar o arquivo de genes de assinatura personalizado;
-  2. Arquivo de fenótipos: Tabela contendo as classes de tipos de células que serão usadas para definir as classes no arquivo de genes de assinatura;
+To create the signature matrix, you need to provide the following information and upload two different files:
 
-**Para rodar um exemplo, basta escolher a opção** ```Example``` **e escolher qualquer uma das opções de teste.**
+  1. Reference file: A table of gene expression profiles of reference cell populations that will be compared against each other. This file is used to define the potential phenotype classes for generating the custom signature gene file.
+  2. Phenotype file: A table containing the cell type classes that will be used to define the classes in the signature gene file.
 
-### Módulo 2- Impute Cells fractions
-O Módulo 2 nos permite fazer a inferência das frações celulares presentes em uma amostra.
+Please ensure that the data type of expression (RNAseq, Single-cell RNAseq, Microarray) is correctly specified when creating the matrix.
 
-Para fazer esse tipo de análise são necessários dois arquivos e a definição de quantas permutações serão feitas por análise:
-  1. Matriz de assinatura: A matriz de assinatura é o dado que irá permitir a identificação do perfil celular presente em uma determinada amostra. Neste campo é possível escolher a matriz gerada pelo usário no Módulo 1 ou escolher entre diversas opções pré definidas pela ferramenta (Exemplo: Matriz LM22- 22 tipos imunes celulares);
-  2. Arquivo Mixture: Matriz de expressão a qual será utilizada para imputar as frações celulares. A normalização da matriz de expressão deve estar preferencialmente em FPKM (fragments per kilobase of transcript per million reads mapped);
-  3. Permutations for significance analysis- 0 to 1000;
+**To run an example, simply choose the option** ```Example``` **and select any of the test options.**
 
-Além disso, a ferramenta também permite a correção dos dados durante análise a partir de três opções:
+### Module 2- Impute Cells fractions
+Module 2 allows us to infer the cellular fractions present in a sample.
+
+To perform this type of analysis, you need two files and the definition of the number of permutations to be performed per analysis:
+
+  1. Signature matrix: The signature matrix is the data that allows the identification of the cellular profile present in a given sample. In this field, you can choose the matrix generated by the user in Module 1 or choose from various pre-defined options provided by the tool (e.g., LM22 matrix - 22 immune cell types).
+  2. Mixture file: The expression matrix that will be used to impute the cellular fractions. The expression matrix should ideally be normalized in FPKM (fragments per kilobase of transcript per million reads mapped).
+  3. Permutations for significance analysis: You can specify the number of permutations to be performed for significance analysis, ranging from 0 to 1000.
+
+Additionally, the tool also provides options for data correction during the analysis, which include:
 
   a. Batch Correction;
   
@@ -38,27 +42,29 @@ Além disso, a ferramenta também permite a correção dos dados durante anális
   
   c. Absolute mode- Scales relative cellular fractions into a score that reflects the absolute proportion of each cell type in a mixture;
 
-**Para rodar um exemplo, basta escolher a opção** ```Example``` **e escolher qualquer uma das opções de teste.**
+**To run an example, simply choose the option** ```Example``` **and select any of the test options.**
 
-### Módulo 3- Impute Cells Expression
-Por fim, o ultímo módulo nos permite identificar quais dos grupos celulares, qual o grau de expressão de cada um, Eles podendo ser agrupados ou serem apresentados a nível amostral.
+### Module 3- Impute Cells Expression
+Finally, the last module allows us to identify the expression levels of each cellular group, either by grouping them or presenting them at the sample level.
 
-Para fazer esse tipo de análise são necessários quatro arquivos:
-  1. Matriz de assinatura (Explicado a cima);
-  2. Arquivo Mixture (Explicado a cima);
-  3. Arquivo de classe agrupado- Um arquivo que relabels the phenotypes in your signature matrix according to broader phenotype;
-  4. Ground truth file (optional)- A file with known gene expression profiles for your cells of interest. Serves for quality control;
+To perform this type of analysis, you need four files:
 
-**Para rodar um exemplo, basta escolher a opção** ```Example``` **e escolher qualquer uma das opções de teste.**
+  1. Signature matrix (explained above).
+  2. Mixture file (explained above).
+  3. Grouped class file: A file that relabels the phenotypes in your signature matrix according to broader phenotypes or groups.
+  4. Ground truth file (optional): A file with known gene expression profiles for your cells of interest. This file serves for quality control purposes.
 
-## Resultados
-Assim que for inicada uma análise, a ferramenta abre uma página aonde você pode acompanhar a etapa do processo e quanto tempo ela está demorando. Vale notar que, mesmo que a página seja fechada, a análise continua sendo feita nos servidores da ferramenta.
+**To run an example, simply choose the option** ```Example``` **and select any of the test options.**
 
-Caso a análise termine, você é redirecionado para a página de visualização dos resultados, sendo dada as opções de download dos gráficos e matrizes geradas pela ferramenta.
-Se, por algum motivo, o navegador foi fechado, você pode verificar o andamento de sua análise e os resultados dela seguindo o passo a passo:
-  1. Acesso o site do [CYBERSORTx](https://cibersortx.stanford.edu/) e faça seu login;
-  2. Na aba ```Menu``` selecione a opção ```Job Results```
+## Results
+Once an analysis is initiated, the tool opens a page where you can track the progress of the process and see how long it is taking. It is important to note that even if the page is closed, the analysis continues to run on the tool's servers.
 
-Nesta aba estará todas as análises que foram feitas. Para visualizar os resultados, basta clicar no ícone ```View hob results``` na coluna ```**Actions**```.
+Once the analysis is completed, you will be redirected to the results visualization page. There, you will be given options to download the generated graphs and matrices produced by the tool.
 
-Para fazer download dos resultados, basta escolher uma das opções do tipo de arquivo que será baixado na coluna ```Download```.
+If, for some reason, your browser was closed, you can still check the progress of your analysis and access the results by following these steps:
+  1. Acess [CYBERSORTx](https://cibersortx.stanford.edu/) and login;
+  2. In ```Menu``` select ```Job Results```
+
+In this tab, you will find all the analyses that have been performed. To view the results, simply click on the icon ```View hob results``` in ```**Actions**``` column.
+
+To download the results, simply choose one of the file type options in the column ```Download``` for the desired type of file to be downloaded.
