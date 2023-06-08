@@ -31,8 +31,11 @@ Para fazer esse tipo de análise são necessários dois arquivos e a definição
   3. Permutations for significance analysis- 0 to 1000;
 
 Além disso, a ferramenta também permite a correção dos dados durante análise a partir de três opções:
+
   a. Batch Correction;
+  
   b. Quantile normalization (Recommended to disable for RNAseq data);
+  
   c. Absolute mode- Scales relative cellular fractions into a score that reflects the absolute proportion of each cell type in a mixture;
 
 **Para rodar um exemplo, basta escolher a opção** ```Example``` **e escolher qualquer uma das opções de teste.**
