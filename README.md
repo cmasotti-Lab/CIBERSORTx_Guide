@@ -65,6 +65,6 @@ If, for some reason, your browser was closed, you can still check the progress o
   1. Acess [CYBERSORTx](https://cibersortx.stanford.edu/) and login;
   2. In ```Menu``` select ```Job Results```
 
-In this tab, you will find all the analyses that have been performed. To view the results, simply click on the icon ```View hob results``` in ```**Actions**``` column.
+In this tab, you will find all the analyses that have been performed. To view the results, simply click on the icon ```View hob results``` in ```Actions``` column.
 
 To download the results, simply choose one of the file type options in the column ```Download``` for the desired type of file to be downloaded.
